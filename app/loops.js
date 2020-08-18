@@ -17,7 +17,7 @@ function factorials(num) {
 // output: 20
 
 function rangeTotal(n1, n2) {
-
+  
 }
 
 // ------------------------------------------

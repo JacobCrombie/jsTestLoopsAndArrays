@@ -4,6 +4,10 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    let x = arr.shift()
+    arr.push(x)
+    return arr
+
 }
 
 
@@ -16,6 +20,35 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+
+    let count= 0
+    let highNum = 0
+    
+    for (let i = 0; i < arr.length; i++) {
+        const currNum = arr[i];
+        if (currNum > highNum){
+            highNum = currNum
+        }
+    }
+
+
+    for (let i = 0; i < arr.length; i++) {
+        const repeat = arr[i];
+        if(repeat == highNum){
+            count++
+        }
+    }
+
+
+    if (count> 1) {
+        let answer={}
+        answer[highNum]=count
+        return answer
+    }
+    else{
+        return highNum
+    }
+
 }
 
 
@@ -28,6 +61,12 @@ function largestNum(arr) {
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+    let multiplied = []
+    for (let i = 0; i < arr.length; i++) {
+        let multiplier = arr[i];
+        multiplied.push(multiplier* arr[0])
+    }
+    return multiplied
 }
 
 
@@ -41,7 +80,13 @@ function elemsTimesLength(arr) {
 // Primitive data types - https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
 function arrayFlattener(arr) {
-
+let newArr = arr.flat(Infinity)
+for (let i = 0; i < newArr.length; i++) {
+    const object = newArr[i];
+    if(object == {})
+    
+}
+return newArr
 }
 
 
@@ -74,10 +119,18 @@ let flights = [{
 }]
 
 
-function flightCost(destination, firstClass) {
-    //***hint: use the find method***
-
+function flightCost(destination, firstClass) { 
+    for (let i = 0; i < flights.length; i++) {
+        const flight = flights[i];
+        if (destination == flight.to) {
+            if(firstClass){
+                return flight.prices.firstClass
+            }
+            return flight.prices.standard
+        }
+    }
 }
+
 
 
 // ------------------------------------------
